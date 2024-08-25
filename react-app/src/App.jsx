@@ -2,6 +2,8 @@ import React from 'react';
 import NavBar from './components/NavBar'; // Adjust the path as necessary
 import Hero from './components/Hero';
 import HomeCards from './components/HomeCards';
+import JobsList from './components/JobsList';
+import ViewAllJobs from './components/ViewAllJobs';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       />
       
       <HomeCards />
+      <JobsList />
+      <ViewAllJobs />
     </>
   );
 }
