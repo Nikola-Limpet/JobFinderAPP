@@ -47,4 +47,4 @@ const JobListing = ({ job }) => {
     </div>
   );
 };
-export default JobListing
+export default JobListing;

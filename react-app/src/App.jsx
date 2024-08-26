@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import HomeCards from './components/HomeCards';
 import JobsList from './components/JobsList';
 import ViewAllJobs from './components/ViewAllJobs';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <HomeCards />
       <JobsList />
       <ViewAllJobs />
+      <Footer />
     </>
   );
 }
