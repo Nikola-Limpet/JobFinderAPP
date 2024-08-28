@@ -4,8 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-      <footer className="bg-white-600 text-
-      white text-center p-4">
+      <footer className="bg-blue-300 text-
+      white text-center p-4 text-2xl ">
         <p>&copy; {currentYear} Nick</p>
       </footer>
   )

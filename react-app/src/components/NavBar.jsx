@@ -4,12 +4,13 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import icon from '../assets/icon.svg'
+import { Link } from 'react-router-dom'
 
 const navigation = [
-  { name: 'Home', href: '#' },
-  { name: 'Jobs', href: '#' },
-  { name: 'Add Job', href: '#' },
-  { name: 'Contact', href: '#' },
+  { name: 'Home', href: '/' },
+  { name: 'Jobs', href: 'jobs' },
+  { name: 'Add Job', href: '/add-job' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 export default function NavBar() {
@@ -18,13 +19,13 @@ export default function NavBar() {
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">
-        <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
+        <nav aria-label="Global" className="flex items-center justify-between p-6  lg:px-8">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">NICK</span>
+            <a href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only"></span>
               <img
                 alt=""
-                src= {icon} 
+                src= {icon}
                 className="h-8 w-auto"
               />
             </a>
@@ -35,15 +36,18 @@ export default function NavBar() {
               onClick={() => setMobileMenuOpen(true)}
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only"></span>
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <Link 
+                key={item.name} 
+                to={item.href} 
+                className="text-md font-thin leading-7 text-gray-900">
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -79,13 +83,13 @@ export default function NavBar() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      to={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 font-semibold text-12xl leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className="py-6">

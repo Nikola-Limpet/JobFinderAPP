@@ -1,26 +1,20 @@
 import React from 'react';
-import NavBar from './components/NavBar'; // Adjust the path as necessary
-import Hero from './components/Hero';
-import HomeCards from './components/HomeCards';
-import JobsList from './components/JobsList';
-import ViewAllJobs from './components/ViewAllJobs';
-import Footer from './components/Footer';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import MainLayout from './layouts/MainLayout';
+import JobPage from './pages/JobPage';
 
-function App() {
-  return (
-    <>
-      <NavBar />
-      <Hero  
-        title= 'Find your most suitable job here!'
-        subtitle = "With Nick's Job Portal, you can find a wide range of job opportunities, from temporary work to permanent positions. For employers, we offer a range of services to help you find the right candidate for your company."
-      />
-      
-      <HomeCards />
-      <JobsList />
-      <ViewAllJobs />
-      <Footer />
-    </>
-  );
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<MainLayout />}>
+      <Route index element={<HomePage />} />
+      <Route path='/jobs' element={<JobPage />} />
+    </Route>
+  )
+);
+
+
+const App = () => {
+  return <RouterProvider router={router} />;
 }
-
 export default App;
