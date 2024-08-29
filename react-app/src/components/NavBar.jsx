@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import icon from '../assets/icon.svg'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -42,18 +42,18 @@ export default function NavBar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <Link 
+              <NavLink 
                 key={item.name} 
                 to={item.href} 
-                className="text-md font-thin leading-7 text-gray-900">
+                className="text-md font-semibold leading-7 rounded-2xl text-gray-900 hover:bg-gray-300/50">
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <Link to="/login" className="text-sm font-semibold leading-7 rounded-2xl text-gray-900 hover:bg-gray-300/50">
               Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
           </div>
         </nav>
 
@@ -73,23 +73,23 @@ export default function NavBar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 rounded-md p-2.5 text-gray-00"
               >
                 <span className="sr-only">Close menu</span>
                 <XMarkIcon aria-hidden="true" className="h-6 w-6" />
               </button>
             </div>
             <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="-my-6 divide-y divide-gray-900/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <Link
+                    <NavLink
                       key={item.name}
                       to={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 font-semibold text-12xl leading-7 text-black-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 font-semibold text-12xl leading-7 text-black-900 hover:bg-gray-300"
                     >
                       {item.name}
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
                 <div className="py-6">
