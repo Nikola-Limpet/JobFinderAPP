@@ -23,7 +23,7 @@ const JobsList = () => {
   }, []);
 
 const displayJobsNew = jobs.slice(0,3); // Display only the first 3 jobs
-const displayJobsRecent = jobs.slice(3,6); // Display only the next 3 jobs
+const displayJobsRecent = jobs.slice(3,length.job); // Display only the next 3 jobs
 
 
 

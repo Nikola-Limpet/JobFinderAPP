@@ -1,9 +1,24 @@
-import { useParams, useLoaderData } from "react-router-dom"
+import { useParams, useLoaderData, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify";
 
-const JobPage = () => {
+const JobPage = ( {deleteJob} ) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const job = useLoaderData();
+
+
+  const onDeleteClick =  (jobId) => {
+    const confirm = window.confirm('Are you sure you want to delete this job?');
+    if (!confirm) {
+      return;
+    }
+    deleteJob(id);
+
+    toast.success('Job Deleted Successfully');
+    
+    navigate('/jobs');
+  }
   return (
     <>
     <section className='container-xl lg:container mt-28'>
@@ -23,10 +38,10 @@ const JobPage = () => {
           <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
             <main>
               <div className='bg-white p-6 rounded-lg shadow-md text-center md:text-left'>
-                <div className='text-gray-500 mb-4'>{job.type}</div>
-                <h1 className='text-3xl font-bold mb-4'>{job.title}</h1>
+                <div className='text-black-500 mb-4'>{job.type}</div>
+                <h1 className='text-3xl text-green-400 font-bold mb-4'>{job.title}</h1>
                 <div className='text-gray-500 mb-4 flex align-middle justify-center md:justify-start'>
-                  <p className='text-orange-700'>{job.location}</p>
+                  <p className='text-blue-600'>{job.location}</p>
                 </div>
               </div>
 
